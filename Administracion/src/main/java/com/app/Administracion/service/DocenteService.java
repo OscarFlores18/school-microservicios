@@ -1,0 +1,77 @@
+package com.app.Administracion.service;
+
+import com.app.Administracion.domain.Docente;
+import com.app.Administracion.domain.DocenteDTO;
+import com.app.Administracion.mappers.DocenteMapper;
+import com.app.Administracion.repository.DocenteRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
+
+@Service
+@Transactional
+public class DocenteService {
+
+    private final DocenteRepository docenteRepository;
+    private final DocenteMapper docenteMapper;
+
+    public DocenteService(DocenteRepository docenteRepository, DocenteMapper docenteMapper) {
+        this.docenteRepository = docenteRepository;
+        this.docenteMapper = docenteMapper;
+    }
+
+    @Transactional(readOnly = true)
+    public List<DocenteDTO> listarTodos() {
+        return docenteRepository.findAll().stream().map(docenteMapper::toDTO).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public DocenteDTO buscarPorId(Long id) {
+        return docenteMapper.toDTO(obtenerEntidad(id));
+    }
+
+    public DocenteDTO crear(DocenteDTO dto) {
+        if (docenteRepository.existsByEmail(dto.email())) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "Ya existe un docente con el email indicado"
+            );
+        }
+
+        Docente docente = docenteMapper.toEntity(dto);
+        docente.setId(null);
+        return docenteMapper.toDTO(docenteRepository.save(docente));
+    }
+
+    public DocenteDTO actualizar(Long id, DocenteDTO dto) {
+        Docente docente = obtenerEntidad(id);
+
+        docenteRepository.findByEmail(dto.email())
+                .filter(otro -> !otro.getId().equals(id))
+                .ifPresent(otro -> {
+                    throw new ResponseStatusException(
+                            HttpStatus.CONFLICT,
+                            "Ya existe otro docente con el email indicado"
+                    );
+                });
+
+        docenteMapper.updateEntity(docente, dto);
+        return docenteMapper.toDTO(docenteRepository.save(docente));
+    }
+
+    public void eliminar(Long id) {
+        Docente docente = obtenerEntidad(id);
+        docenteRepository.delete(docente);
+    }
+
+    private Docente obtenerEntidad(Long id) {
+        return docenteRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Docente no encontrado con id: " + id
+                ));
+    }
+}
