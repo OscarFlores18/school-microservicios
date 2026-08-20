@@ -11,8 +11,3 @@ spring:
         git:
           uri: https://github.com/OscarFlores18/school-config
           default-label: main
-
-logging:
-  level:
-    org.springframework.cloud.config: DEBUG
-    org.springframework.cloud.config.server: DEBUG
