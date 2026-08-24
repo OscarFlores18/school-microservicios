@@ -3,7 +3,7 @@ package com.app.Alumno;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "com.app")
+@SpringBootApplication
 public class AlumnoApplication {
 
 	public static void main(String[] args) {
