@@ -36,7 +36,7 @@ public class CursosService {
 
     public CursosDTO crear(CursosDTO dto) {
 
-        Cursos curso = CursosMappers.toEntity(dto);
+        Cursos curso = cursosMappers.toEntity(dto);
         curso.setId(null);
 
         return cursosMappers.toDTO(cursosRepository.save(curso));

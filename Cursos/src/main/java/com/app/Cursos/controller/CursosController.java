@@ -1,4 +1,4 @@
-package com.app.controller;
+package com.app.Cursos.controller;
 
 import java.util.List;
 
