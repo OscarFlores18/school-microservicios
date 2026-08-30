@@ -19,7 +19,7 @@ public class AlumnoMapper {
                 alumno.getEmail(),
                 alumno.getDni(),
                 alumno.getFechaNacimiento(),
-                alumno.getCurso()
+                alumno.getIdCurso()
         );
     }
 
@@ -35,7 +35,7 @@ public class AlumnoMapper {
                 dto.email(),
                 dto.dni(),
                 dto.fechaNacimiento(),
-                dto.curso()
+                dto.id_curso()
         );
     }
 
@@ -45,6 +45,6 @@ public class AlumnoMapper {
         alumno.setEmail(dto.email());
         alumno.setDni(dto.dni());
         alumno.setFechaNacimiento(dto.fechaNacimiento());
-        alumno.setCurso(dto.curso());
+        alumno.setIdCurso(dto.id_curso());
     }
 }

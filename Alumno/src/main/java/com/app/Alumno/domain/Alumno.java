@@ -21,20 +21,21 @@ public class Alumno {
     private String email;
     private String dni;
     private LocalDate fechaNacimiento;
-    private String curso;
+
+    private Long id_curso;
 
     public Alumno() {
     }
 
     public Alumno(Long id, String nombre, String apellido, String email, String dni,
-                  LocalDate fechaNacimiento, String curso) {
+                  LocalDate fechaNacimiento, Long id_curso) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.dni = dni;
         this.fechaNacimiento = fechaNacimiento;
-        this.curso = curso;
+        this.id_curso = id_curso;
     }
 
     public Long getId() {
@@ -85,11 +86,11 @@ public class Alumno {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getCurso() {
-        return curso;
+    public Long getIdCurso() {
+        return id_curso;
     }
 
-    public void setCurso(String curso) {
-        this.curso = curso;
+    public void setIdCurso(Long id_curso) {
+        this.id_curso = id_curso;
     }
 }
