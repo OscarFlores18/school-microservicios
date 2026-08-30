@@ -1,7 +1,9 @@
 package com.app.model;
 
+import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,7 +29,7 @@ public class Cursos {
     private String horario;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "docente_id")
+    @JoinColumn(name = "docente_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Docente docente;
 
     @OneToMany(mappedBy = "curso")

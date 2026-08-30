@@ -4,3 +4,17 @@ spring:
 
   config:
     import: optional:configserver:http://localhost:8888
+
+  datasource:
+    url: jdbc:h2:file:./data/cursos
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  h2:
+    console:
+      enabled: true
