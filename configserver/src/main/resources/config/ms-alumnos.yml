@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:file:./data/alumnos
+    url: jdbc:h2:~/school-data/escuela;AUTO_SERVER=TRUE
     username: sa
     password:
     driver-class-name: org.h2.Driver

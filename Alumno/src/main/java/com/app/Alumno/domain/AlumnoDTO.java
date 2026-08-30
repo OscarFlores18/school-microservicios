@@ -2,6 +2,7 @@ package com.app.Alumno.domain;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 
 import java.time.LocalDate;
@@ -25,7 +26,7 @@ public record AlumnoDTO(
         @Past(message = "La fecha de nacimiento debe ser una fecha pasada")
         LocalDate fechaNacimiento,
 
-        @NotBlank(message = "El curso es obligatorio")
-        String curso
+        @NotNull(message = "El curso es obligatorio")
+        Long cursoId
 ) {
 }

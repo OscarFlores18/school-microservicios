@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.app.Cursos.domain.Cursos;
 import com.app.Cursos.domain.CursosDTO;
 import com.app.Cursos.mappers.CursosMappers;
 import com.app.Cursos.repository.CursosRepository;
+import com.app.model.Cursos;
 
 @Service
 @Transactional

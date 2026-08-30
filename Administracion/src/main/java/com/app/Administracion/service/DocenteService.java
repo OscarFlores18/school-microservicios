@@ -1,9 +1,9 @@
 package com.app.Administracion.service;
 
-import com.app.Administracion.domain.Docente;
 import com.app.Administracion.domain.DocenteDTO;
 import com.app.Administracion.mappers.DocenteMapper;
 import com.app.Administracion.repository.DocenteRepository;
+import com.app.model.Docente;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,7 +1,8 @@
 package com.app.Alumno.mappers;
 
-import com.app.Alumno.domain.Alumno;
 import com.app.Alumno.domain.AlumnoDTO;
+import com.app.model.Alumno;
+import com.app.model.Cursos;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,7 +20,7 @@ public class AlumnoMapper {
                 alumno.getEmail(),
                 alumno.getDni(),
                 alumno.getFechaNacimiento(),
-                alumno.getCurso()
+                alumno.getCurso() != null ? alumno.getCurso().getId() : null
         );
     }
 
@@ -35,7 +36,7 @@ public class AlumnoMapper {
                 dto.email(),
                 dto.dni(),
                 dto.fechaNacimiento(),
-                dto.curso()
+                dto.cursoId() != null ? new Cursos(dto.cursoId()) : null
         );
     }
 
@@ -45,6 +46,6 @@ public class AlumnoMapper {
         alumno.setEmail(dto.email());
         alumno.setDni(dto.dni());
         alumno.setFechaNacimiento(dto.fechaNacimiento());
-        alumno.setCurso(dto.curso());
+        alumno.setCurso(dto.cursoId() != null ? new Cursos(dto.cursoId()) : null);
     }
 }

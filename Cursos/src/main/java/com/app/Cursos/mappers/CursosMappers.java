@@ -2,8 +2,9 @@ package com.app.Cursos.mappers;
 
 import org.springframework.stereotype.Component;
 
-import com.app.Cursos.domain.Cursos;
 import com.app.Cursos.domain.CursosDTO;
+import com.app.model.Cursos;
+import com.app.model.Docente;
 
 @Component
 public class CursosMappers {
@@ -18,7 +19,7 @@ public class CursosMappers {
 				curso.getDescripcion(),
 				curso.getCurso(),
 				curso.getHorario(),
-				curso.getId_docente()
+				curso.getDocente() != null ? curso.getDocente().getId() : null
 		);
 	}
 
@@ -32,7 +33,7 @@ public class CursosMappers {
 				dto.descripcion(),
 				dto.curso(),
 				dto.horario(),
-				dto.id_docente()
+				dto.id_docente() != null ? new Docente(dto.id_docente()) : null
 		);
 	}
 
@@ -41,6 +42,6 @@ public class CursosMappers {
 		curso.setDescripcion(dto.descripcion());
 		curso.setCurso(dto.curso());
 		curso.setHorario(dto.horario());
-		curso.setId_docente(dto.id_docente());
+		curso.setDocente(dto.id_docente() != null ? new Docente(dto.id_docente()) : null);
 	}
 }

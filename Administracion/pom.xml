@@ -35,6 +35,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
+
+		<!-- Entidades compartidas -->
+		<dependency>
+			<groupId>com.app</groupId>
+			<artifactId>escuela-model</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		   <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>

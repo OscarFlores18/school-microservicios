@@ -1,6 +1,6 @@
 package com.app.Administracion.repository;
 
-import com.app.Administracion.domain.Docente;
+import com.app.model.Docente;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

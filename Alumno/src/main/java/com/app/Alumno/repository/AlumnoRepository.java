@@ -1,6 +1,6 @@
 package com.app.Alumno.repository;
 
-import com.app.Alumno.domain.Alumno;
+import com.app.model.Alumno;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -14,5 +14,5 @@ public interface AlumnoRepository extends JpaRepository<Alumno, Long> {
 
     boolean existsByDni(String dni);
 
-    List<Alumno> findByCursoIgnoreCase(String curso);
+    List<Alumno> findByCursoNombreIgnoreCase(String nombre);
 }

@@ -1,7 +1,7 @@
 package com.app.Administracion.mappers;
 
-import com.app.Administracion.domain.Docente;
 import com.app.Administracion.domain.DocenteDTO;
+import com.app.model.Docente;
 import org.springframework.stereotype.Component;
 
 @Component

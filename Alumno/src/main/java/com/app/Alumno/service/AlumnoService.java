@@ -1,9 +1,9 @@
 package com.app.Alumno.service;
 
-import com.app.Alumno.domain.Alumno;
 import com.app.Alumno.domain.AlumnoDTO;
 import com.app.Alumno.mappers.AlumnoMapper;
 import com.app.Alumno.repository.AlumnoRepository;
+import com.app.model.Alumno;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,7 +30,7 @@ public class AlumnoService {
 
     @Transactional(readOnly = true)
     public List<AlumnoDTO> listarPorCurso(String curso) {
-        return alumnoRepository.findByCursoIgnoreCase(curso).stream().map(alumnoMapper::toDTO).toList();
+        return alumnoRepository.findByCursoNombreIgnoreCase(curso).stream().map(alumnoMapper::toDTO).toList();
     }
 
     @Transactional(readOnly = true)
