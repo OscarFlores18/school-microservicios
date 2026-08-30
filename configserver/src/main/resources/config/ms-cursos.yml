@@ -1,2 +1,7 @@
 server:
   port: 8081
+
+springdoc:
+  swagger-ui:
+    config-url: /cursos/v3/api-docs/swagger-config
+    url: /cursos/v3/api-docs
