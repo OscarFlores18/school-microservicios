@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swagger unificado - Escuela</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Arial, sans-serif; background: #1b1b1f; color: #e8e8e8; }
+  header { padding: 14px 20px; background: #26262c; border-bottom: 1px solid #3a3a42; }
+  header h1 { margin: 0; font-size: 18px; }
+  header p { margin: 4px 0 0; font-size: 12px; color: #9a9aa5; }
+  nav { display: flex; gap: 4px; padding: 8px 12px; background: #222227; border-bottom: 1px solid #3a3a42; }
+  nav button { background: #2e2e36; color: #ccc; border: 1px solid #3a3a42; border-radius: 6px; padding: 8px 14px; cursor: pointer; font-size: 13px; }
+  nav button.active { background: #4766ff; color: #fff; border-color: #4766ff; }
+  main { position: relative; height: calc(100vh - 110px); }
+  iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: none; }
+  iframe.active { display: block; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Swagger de los microservicios - Escuela</h1>
+  <p>Entrada única por el gateway (localhost:8080)</p>
+</header>
+<nav id="tabs"></nav>
+<main id="frames"></main>
+<script>
+  const swaggers = [
+    { key: "alumnos",        nombre: "Alumnos",        url: "/alumnos/swagger-ui/index.html" },
+    { key: "cursos",         nombre: "Cursos",         url: "/cursos/swagger-ui/index.html" },
+    { key: "administracion", nombre: "Administracion", url: "/administracion/swagger-ui/index.html" }
+  ];
+  const tabsEl = document.getElementById("tabs");
+  const framesEl = document.getElementById("frames");
+  swaggers.forEach(function (s, i) {
+    const b = document.createElement("button");
+    b.textContent = s.nombre;
+    b.onclick = function () { mostrar(i); };
+    tabsEl.appendChild(b);
+    const f = document.createElement("iframe");
+    f.src = s.url;
+    framesEl.appendChild(f);
+  });
+  function mostrar(i) {
+    const btns = tabsEl.querySelectorAll("button");
+    const frames = framesEl.querySelectorAll("iframe");
+    btns.forEach(function (b, j) { b.classList.toggle("active", j === i); });
+    frames.forEach(function (f, j) { f.classList.toggle("active", j === i); });
+  }
+  mostrar(0);
+</script>
+</body>
+</html>

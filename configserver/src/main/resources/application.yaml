@@ -5,11 +5,9 @@ spring:
   application:
     name: configserver
 
-  profiles:
-    active: native
-
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/config/
+        git:
+          uri: https://github.com/OscarFlores18/school-config
+          default-label: main

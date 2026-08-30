@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: ms-alumnos
-
-  config:
-    import: configserver:http://localhost:8888
