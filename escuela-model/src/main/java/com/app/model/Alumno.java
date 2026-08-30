@@ -27,7 +27,7 @@ public class Alumno {
     private String dni;
     private LocalDate fechaNacimiento;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "curso_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Cursos curso;
 

@@ -28,7 +28,7 @@ public class Cursos {
     private String curso;
     private String horario;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "docente_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Docente docente;
 
