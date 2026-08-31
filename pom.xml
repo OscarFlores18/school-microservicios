@@ -16,7 +16,6 @@
 		<module>configserver</module>
 		<module>gateway</module>
 		<module>adminservice</module>
-		<module>escuela-model</module>
 		<module>Alumno</module>
 		<module>Cursos</module>
 		<module>Administracion</module>

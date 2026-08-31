@@ -1,7 +1,9 @@
-package com.app.model;
+package com.app.Cursos.domain;
 
+import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,8 +27,8 @@ public class Alumno {
     private String dni;
     private LocalDate fechaNacimiento;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "curso_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "curso_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Cursos curso;
 
     public Alumno() {

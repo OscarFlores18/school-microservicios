@@ -1,7 +1,2 @@
-INDEX VERSION 1.4+C:\Users\Oscar\eclipse-workspace\Proyektos\school-microservicios-escuela-cambios\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+INDEX VERSION 1.4+C:\Users\Oscar\eclipse-workspace\Proyektos\school-microservicios\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 3672466607.index
-955077784.index
-2371607879.index
-2361838799.index
-2870522405.index
-3903208211.index

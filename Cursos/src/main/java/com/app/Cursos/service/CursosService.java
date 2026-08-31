@@ -10,7 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.app.Cursos.domain.CursosDTO;
 import com.app.Cursos.mappers.CursosMappers;
 import com.app.Cursos.repository.CursosRepository;
-import com.app.model.Cursos;
+import com.app.Cursos.domain.Cursos;
 
 @Service
 @Transactional

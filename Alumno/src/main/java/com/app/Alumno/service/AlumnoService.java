@@ -3,7 +3,7 @@ package com.app.Alumno.service;
 import com.app.Alumno.domain.AlumnoDTO;
 import com.app.Alumno.mappers.AlumnoMapper;
 import com.app.Alumno.repository.AlumnoRepository;
-import com.app.model.Alumno;
+import com.app.Alumno.domain.Alumno;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

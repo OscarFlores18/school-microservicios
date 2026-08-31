@@ -1,9 +1,14 @@
 package com.app.Alumno.domain;
 
+import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import java.time.LocalDate;
@@ -21,13 +26,16 @@ public class Alumno {
     private String email;
     private String dni;
     private LocalDate fechaNacimiento;
-    private String curso;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "curso_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    private Cursos curso;
 
     public Alumno() {
     }
 
     public Alumno(Long id, String nombre, String apellido, String email, String dni,
-                  LocalDate fechaNacimiento, String curso) {
+                  LocalDate fechaNacimiento, Cursos curso) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -85,11 +93,11 @@ public class Alumno {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getCurso() {
+    public Cursos getCurso() {
         return curso;
     }
 
-    public void setCurso(String curso) {
+    public void setCurso(Cursos curso) {
         this.curso = curso;
     }
 }

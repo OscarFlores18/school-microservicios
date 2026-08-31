@@ -1,6 +1,6 @@
 package com.app.Alumno.repository;
 
-import com.app.model.Alumno;
+import com.app.Alumno.domain.Alumno;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

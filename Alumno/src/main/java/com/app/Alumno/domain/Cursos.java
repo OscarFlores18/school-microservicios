@@ -1,12 +1,9 @@
-package com.app.model;
+package com.app.Alumno.domain;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -26,23 +23,10 @@ public class Cursos {
     private String curso;
     private String horario;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "docente_id")
-    private Docente docente;
-
     @OneToMany(mappedBy = "curso")
     private List<Alumno> alumnos = new ArrayList<>();
 
     public Cursos() {
-    }
-
-    public Cursos(Long id, String nombre, String descripcion, String curso, String horario, Docente docente) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.curso = curso;
-        this.horario = horario;
-        this.docente = docente;
     }
 
     public Cursos(Long id) {
@@ -87,14 +71,6 @@ public class Cursos {
 
     public void setHorario(String horario) {
         this.horario = horario;
-    }
-
-    public Docente getDocente() {
-        return docente;
-    }
-
-    public void setDocente(Docente docente) {
-        this.docente = docente;
     }
 
     public List<Alumno> getAlumnos() {

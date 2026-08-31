@@ -2,9 +2,9 @@ package com.app.Cursos.mappers;
 
 import org.springframework.stereotype.Component;
 
+import com.app.Cursos.domain.Cursos;
 import com.app.Cursos.domain.CursosDTO;
-import com.app.model.Cursos;
-import com.app.model.Docente;
+import com.app.Cursos.domain.Docente;
 
 @Component
 public class CursosMappers {

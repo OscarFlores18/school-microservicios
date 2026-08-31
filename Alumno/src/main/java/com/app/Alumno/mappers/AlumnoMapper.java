@@ -1,8 +1,8 @@
 package com.app.Alumno.mappers;
 
+import com.app.Alumno.domain.Alumno;
 import com.app.Alumno.domain.AlumnoDTO;
-import com.app.model.Alumno;
-import com.app.model.Cursos;
+import com.app.Alumno.domain.Cursos;
 import org.springframework.stereotype.Component;
 
 @Component

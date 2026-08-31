@@ -1,12 +1,21 @@
 package com.app.Cursos.domain;
 
+import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-@Entity
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity(name = "Curso")
 @Table(name = "cursos")
 public class Cursos {
 
@@ -18,68 +27,83 @@ public class Cursos {
     private String descripcion;
     private String curso;
     private String horario;
-    private Long id_docente;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "docente_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    private Docente docente;
+
+    @OneToMany(mappedBy = "curso")
+    private List<Alumno> alumnos = new ArrayList<>();
 
     public Cursos() {
     }
 
-	public Cursos(Long id, String nombre, String descripcion, String curso, String horario, Long id_docente) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.curso = curso;
-		this.horario = horario;
-		this.id_docente = id_docente;
-	}
+    public Cursos(Long id) {
+        this.id = id;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Cursos(Long id, String nombre, String descripcion, String curso, String horario, Docente docente) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.curso = curso;
+        this.horario = horario;
+        this.docente = docente;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public String getDescripcion() {
-		return descripcion;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+    public String getDescripcion() {
+        return descripcion;
+    }
 
-	public String getCurso() {
-		return curso;
-	}
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
-	public void setCurso(String curso) {
-		this.curso = curso;
-	}
+    public String getCurso() {
+        return curso;
+    }
 
-	public String getHorario() {
-		return horario;
-	}
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
 
-	public void setHorario(String horario) {
-		this.horario = horario;
-	}
+    public String getHorario() {
+        return horario;
+    }
 
-	public Long getId_docente() {
-		return id_docente;
-	}
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
 
-	public void setId_docente(Long id_docente) {
-		this.id_docente = id_docente;
-	}
+    public Docente getDocente() {
+        return docente;
+    }
 
-   
+    public void setDocente(Docente docente) {
+        this.docente = docente;
+    }
+
+    public List<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(List<Alumno> alumnos) {
+        this.alumnos = alumnos;
+    }
 }

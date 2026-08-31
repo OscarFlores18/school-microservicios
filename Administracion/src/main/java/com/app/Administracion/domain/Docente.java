@@ -4,7 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "docentes")
@@ -19,7 +23,14 @@ public class Docente {
     private String email;
     private String especialidad;
 
+    @OneToMany(mappedBy = "docente")
+    private List<Cursos> cursos = new ArrayList<>();
+
     public Docente() {
+    }
+
+    public Docente(Long id) {
+        this.id = id;
     }
 
     public Docente(Long id, String nombre, String apellido, String email, String especialidad) {
@@ -68,5 +79,13 @@ public class Docente {
 
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
+    }
+
+    public List<Cursos> getCursos() {
+        return cursos;
+    }
+
+    public void setCursos(List<Cursos> cursos) {
+        this.cursos = cursos;
     }
 }
