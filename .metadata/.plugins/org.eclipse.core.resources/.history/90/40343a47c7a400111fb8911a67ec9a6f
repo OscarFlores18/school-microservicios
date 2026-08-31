@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:h2:~/school-data/escuela;AUTO_SERVER=TRUE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  h2:
+    console:
+      enabled: true
+
+springdoc:
+  swagger-ui:
+    config-url: ../v3/api-docs/swagger-config
+    url: ../v3/api-docs

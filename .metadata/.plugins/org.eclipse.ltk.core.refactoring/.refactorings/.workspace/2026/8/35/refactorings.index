@@ -1,0 +1,6 @@
+1788130589354	Delete resource 'adminservice/src/main/resources/application-docker.yaml'
+1788130592605	Delete resource 'Alumno/src/main/resources/application-docker.yml'
+1788130597349	Delete resource 'configserver/src/main/resources/application-docker.yaml'
+1788130603820	Delete resource 'Cursos/src/main/resources/application-docker.yml'
+1788130610540	Delete resource 'gateway/src/main/resources/application-docker.yaml'
+1788130624735	Delete resource 'registry/src/main/resources/application-docker.yml'
